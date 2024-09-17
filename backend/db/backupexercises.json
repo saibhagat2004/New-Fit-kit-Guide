@@ -1,0 +1,355 @@
+
+[
+  {
+    "name": "Push-Up",
+    "type": "Strength",
+    "equipment_needed": "None",
+    "body_part_targeted": ["Chest", "Arms", "Core"],
+    "category": {
+      "exercise_type": "Primary"
+    },
+    "repetitions": {
+      "Beginner": 10,
+      "Intermediate": 15,
+      "Advanced": 20
+    },
+    "instructions": "Start in a high plank position with your hands slightly wider than shoulder-width apart. Lower your body until your chest nearly touches the floor, then push back up to the starting position. Keep your core tight throughout the movement.",
+    "use_in_pain_or_injury": null,
+    "common_mistakes": [
+      "Letting your hips sag.",
+      "Flaring your elbows out too far.",
+      "Not going low enough."
+    ],
+    "media_url": "https://example.com/push-up-gif"
+  },
+  {
+    "name": "Bench Press",
+    "type": "Strength",
+    "equipment_needed": "Barbell",
+    "body_part_targeted": ["Chest", "Arms", "Shoulders"],
+    "category": {
+      "exercise_type": "Primary"
+    },
+    "repetitions": {
+      "Beginner": 8,
+      "Intermediate": 12,
+      "Advanced": 15
+    },
+    "instructions": "Lie on a bench with your feet flat on the floor. Grip the barbell with hands slightly wider than shoulder-width apart. Lower the bar to your chest, then press it back up to the starting position.",
+    "use_in_pain_or_injury": null,
+    "common_mistakes": [
+      "Bouncing the bar off your chest.",
+      "Lifting your feet off the floor.",
+      "Not keeping your wrists straight."
+    ],
+    "media_url": "https://example.com/bench-press-gif"
+  },
+  {
+    "name": "Shoulder Press",
+    "type": "Strength",
+    "equipment_needed": "Dumbbells",
+    "body_part_targeted": ["Shoulders", "Arms"],
+    "category": {
+      "exercise_type": "Primary"
+    },
+    "repetitions": {
+      "Beginner": 8,
+      "Intermediate": 12,
+      "Advanced": 15
+    },
+    "instructions": "Sit on a bench with a back support and hold a dumbbell in each hand at shoulder height with your palms facing forward. Press the weights overhead until your arms are fully extended, then slowly lower them back to the starting position.",
+    "use_in_pain_or_injury": null,
+    "common_mistakes": [
+      "Arching your lower back.",
+      "Using too much weight, leading to poor form.",
+      "Not lowering the dumbbells to shoulder level."
+    ],
+    "media_url": "https://example.com/shoulder-press-gif"
+  },
+  {
+    "name": "Rear Delt Fly",
+    "type": "Strength",
+    "equipment_needed": "Dumbbells",
+    "body_part_targeted": ["Shoulders", "Upper Back"],
+    "category": {
+      "exercise_type": "Secondary"
+    },
+    "repetitions": {
+      "Beginner": 10,
+      "Intermediate": 12,
+      "Advanced": 15
+    },
+    "instructions": "Stand with your feet shoulder-width apart, holding a dumbbell in each hand. Bend your knees slightly and lean forward at the hips, keeping your back straight and palms facing each other. Raise the weights out to the sides, squeezing your shoulder blades together. Slowly lower the weights back to the starting position.",
+    "use_in_pain_or_injury": null,
+    "common_mistakes": [
+      "Rounding your back, which can lead to injury.",
+      "Using too much weight, reducing the effectiveness of the exercise.",
+      "Swinging the weights instead of controlling the motion."
+    ],
+    "media_url": "https://example.com/rear-delt-fly-gif"
+  },
+  {
+    "name": "Squat",
+    "type": "Strength",
+    "equipment_needed": "Barbell",
+    "body_part_targeted": ["Legs", "Glutes"],
+    "category": {
+      "exercise_type": "Primary"
+    },
+    "repetitions": {
+      "Beginner": 10,
+      "Intermediate": 12,
+      "Advanced": 15
+    },
+    "instructions": "Stand with your feet shoulder-width apart and the barbell resting on your upper back. Lower your body by bending your knees and hips, keeping your chest up and back straight. Push through your heels to return to the starting position.",
+    "use_in_pain_or_injury": null,
+    "common_mistakes": [
+      "Letting your knees cave inwards.",
+      "Rounding your back, which can cause injury.",
+      "Not squatting deep enough."
+    ],
+    "media_url": "https://example.com/squat-gif"
+  },
+  {
+    "name": "Lunges",
+    "type": "Strength",
+    "equipment_needed": "None",
+    "body_part_targeted": ["Legs", "Glutes"],
+    "category": {
+      "exercise_type": "Primary"
+    },
+    "repetitions": {
+      "Beginner": 10,
+      "Intermediate": 12,
+      "Advanced": 15
+    },
+    "instructions": "Stand with your feet hip-width apart. Step forward with one leg and lower your hips until both knees are bent at a 90-degree angle. Push through your front heel to return to the starting position and repeat on the other side.",
+    "use_in_pain_or_injury": null,
+    "common_mistakes": [
+      "Letting your front knee go past your toes.",
+      "Not keeping your torso upright.",
+      "Taking too short or too long steps."
+    ],
+    "media_url": "https://example.com/lunges-gif"
+  },
+  {
+    "name": "Leg Press",
+    "type": "Strength",
+    "equipment_needed": "Leg Press Machine",
+    "body_part_targeted": ["Legs", "Glutes"],
+    "category": {
+      "exercise_type": "Primary"
+    },
+    "repetitions": {
+      "Beginner": 10,
+      "Intermediate": 12,
+      "Advanced": 15
+    },
+    "instructions": "Sit on the leg press machine with your feet shoulder-width apart on the platform. Lower the platform until your knees form a 90-degree angle. Push the platform back up by straightening your legs, but don't lock your knees.",
+    "use_in_pain_or_injury": null,
+    "common_mistakes": [
+      "Allowing your knees to collapse inward.",
+      "Locking your knees at the top of the movement.",
+      "Not lowering the platform far enough."
+    ],
+    "media_url": "https://example.com/leg-press-gif"
+  },
+  {
+    "name": "Deadlift",
+    "type": "Strength",
+    "equipment_needed": "Barbell",
+    "body_part_targeted": ["Legs", "Back", "Glutes"],
+    "category": {
+      "exercise_type": "Primary"
+    },
+    "repetitions": {
+      "Beginner": 8,
+      "Intermediate": 12,
+      "Advanced": 15
+    },
+    "instructions": "Stand with your feet hip-width apart, barbell on the floor in front of you. Bend at your hips and knees to grasp the bar with an overhand grip. Keep your back straight as you lift the bar by extending your hips and knees. Lower the bar back to the ground with control.",
+    "use_in_pain_or_injury": null,
+    "common_mistakes": [
+      "Rounding your back, which can lead to injury.",
+      "Not keeping the bar close to your body.",
+      "Using your lower back instead of your legs to lift the weight."
+    ],
+    "media_url": "https://example.com/deadlift-gif"
+  },
+  {
+    "name": "Leg Curl",
+    "type": "Strength",
+    "equipment_needed": "Leg Curl Machine",
+    "body_part_targeted": ["Legs"],
+    "category": {
+      "exercise_type": "Secondary"
+    },
+    "repetitions": {
+      "Beginner": 10,
+      "Intermediate": 12,
+      "Advanced": 15
+    },
+    "instructions": "Lie face down on the leg curl machine with the padded lever positioned just above your heels. Curl your legs up as far as possible without lifting your thighs off the pad. Slowly return to the starting position.",
+    "use_in_pain_or_injury": null,
+    "common_mistakes": [
+      "Lifting your hips off the pad.",
+      "Using momentum to swing the weight up.",
+      "Not controlling the lowering phase."
+    ],
+    "media_url": "https://example.com/leg-curl-gif"
+  },
+  {
+    "name": "Barbell Row",
+    "type": "Strength",
+    "equipment_needed": "Barbell",
+    "body_part_targeted": ["Back", "Shoulders"],
+    "category": {
+      "exercise_type": "Primary"
+    },
+    "repetitions": {
+      "Beginner": 8,
+      "Intermediate": 12,
+      "Advanced": 15
+    },
+    "instructions": "Stand with your feet hip-width apart, holding a barbell with an overhand grip. Bend at your hips and knees, keeping your back straight. Pull the barbell towards your lower chest, then slowly lower it back to the starting position.",
+    "use_in_pain_or_injury": null,
+    "common_mistakes": [
+      "Rounding your back, which can cause injury.",
+      "Using too much weight, reducing the effectiveness of the exercise.",
+      "Not pulling the bar to your chest."
+    ],
+    "media_url": "https://example.com/barbell-row-gif"
+  },
+  {
+    "name": "T-Bar Row",
+    "type": "Strength",
+    "equipment_needed": "T-Bar Row Machine",
+    "body_part_targeted": ["Back", "Arms"],
+    "category": {
+      "exercise_type": "Secondary"
+    },
+    "repetitions": {
+      "Beginner": 8,
+      "Intermediate": 12,
+      "Advanced": 15
+    },
+    "instructions": "Stand with your feet hip-width apart on the T-bar row machine, grasping the handles with an overhand grip. Pull the handles towards your lower chest, squeezing your shoulder blades together. Slowly lower the handles back to the starting position.",
+    "use_in_pain_or_injury": null,
+    "common_mistakes": [
+      "Using your arms more than your back muscles.",
+      "Rounding your back, which can cause injury.",
+      "Not pulling the handles all the way to your chest."
+    ],
+    "media_url": "https://example.com/t-bar-row-gif"
+  },
+  {
+    "name": "Plank",
+    "type": "Core",
+    "equipment_needed": "None",
+    "body_part_targeted": ["Core", "Shoulders", "Back"],
+    "category": {
+      "exercise_type": "Secondary"
+    },
+    "repetitions": {
+      "Beginner": "Hold for 20 seconds",
+      "Intermediate": "Hold for 40 seconds",
+      "Advanced": "Hold for 60 seconds"
+    },
+    "instructions": "Begin in a push-up position with your body in a straight line from head to heels. Engage your core and hold this position without allowing your hips to sag or rise.",
+    "use_in_pain_or_injury": null,
+    "common_mistakes": [
+      "Letting your hips sag, which can strain your lower back.",
+      "Holding your breath instead of breathing steadily.",
+      "Not keeping your body in a straight line."
+    ],
+    "media_url": "https://example.com/plank-gif"
+  },
+  {
+    "name": "Bicep Curl",
+    "type": "Strength",
+    "equipment_needed": "Dumbbells",
+    "body_part_targeted": ["Arms"],
+    "category": {
+      "exercise_type": "Primary"
+    },
+    "repetitions": {
+      "Beginner": 10,
+      "Intermediate": 12,
+      "Advanced": 15
+    },
+    "instructions": "Stand with your feet shoulder-width apart, holding a dumbbell in each hand with your palms facing forward. Keeping your elbows close to your sides, curl the dumbbells up towards your shoulders. Lower the dumbbells back to the starting position with control.",
+    "use_in_pain_or_injury": null,
+    "common_mistakes": [
+      "Swinging the weights, using momentum instead of muscle.",
+      "Not fully extending your arms at the bottom of the movement.",
+      "Letting your elbows drift away from your sides."
+    ],
+    "media_url": "https://example.com/bicep-curl-gif"
+  },
+  {
+    "name": "Tricep Dip",
+    "type": "Strength",
+    "equipment_needed": "Parallel Bars",
+    "body_part_targeted": ["Arms"],
+    "category": {
+      "exercise_type": "Primary"
+    },
+    "repetitions": {
+      "Beginner": 8,
+      "Intermediate": 12,
+      "Advanced": 15
+    },
+    "instructions": "Position yourself on the parallel bars with your arms straight and feet off the ground. Lower your body by bending your elbows until your upper arms are parallel to the floor. Push through your palms to return to the starting position.",
+    "use_in_pain_or_injury": null,
+    "common_mistakes": [
+      "Letting your shoulders shrug up towards your ears.",
+      "Not lowering your body far enough.",
+      "Allowing your elbows to flare out to the sides."
+    ],
+    "media_url": "https://example.com/tricep-dip-gif"
+  },
+  {
+    "name": "Hammer Curl",
+    "type": "Strength",
+    "equipment_needed": "Dumbbells",
+    "body_part_targeted": ["Arms"],
+    "category": {
+      "exercise_type": "Secondary"
+    },
+    "repetitions": {
+      "Beginner": 10,
+      "Intermediate": 12,
+      "Advanced": 15
+    },
+    "instructions": "Stand with your feet shoulder-width apart, holding a dumbbell in each hand with your palms facing each other. Keeping your elbows close to your sides, curl the dumbbells up towards your shoulders. Lower the dumbbells back to the starting position with control.",
+    "use_in_pain_or_injury": null,
+    "common_mistakes": [
+      "Using momentum to swing the weights up.",
+      "Not fully extending your arms at the bottom of the movement.",
+      "Letting your elbows drift away from your sides."
+    ],
+    "media_url": "https://example.com/hammer-curl-gif"
+  },
+  {
+    "name": "Overhead Tricep Extension",
+    "type": "Strength",
+    "equipment_needed": "Dumbbell",
+    "body_part_targeted": ["Arms"],
+    "category": {
+      "exercise_type": "Secondary"
+    },
+    "repetitions": {
+      "Beginner": 10,
+      "Intermediate": 12,
+      "Advanced": 15
+    },
+    "instructions": "Sit or stand with your feet shoulder-width apart, holding a dumbbell with both hands behind your head. Extend your arms straight up, keeping your elbows close to your head. Lower the dumbbell back to the starting position with control.",
+    "use_in_pain_or_injury": null,
+    "common_mistakes": [
+      "Flaring your elbows out to the sides.",
+      "Using too much weight, leading to poor form.",
+      "Not lowering the dumbbell far enough."
+    ],
+    "media_url": "https://example.com/overhead-tricep-extension-gif"
+  }
+]
