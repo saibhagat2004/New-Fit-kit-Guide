@@ -2,7 +2,13 @@ import { Navigate, Route,Routes } from "react-router-dom"
 import HomePage from './pages/home/HomePage';
 import LoginPage from './pages/auth/login/loginPage';
 import SignUpPage from "./pages/auth/signup/SignUpPage";
-import Exercises from "./pages/Exercises_Page/AllExercises";
+import Home from "./pages/home/HomePage";
+import GenerateExercises from "./pages/Exercises_Page/AllExercises"
+import DiscoveryPage from "./pages/DiscoveryPage"
+import ExerciseList from './pages/Exercises_Page/ExerciseList';
+import ExerciseDetails from './pages/Exercises_Page/ExerciseDetail';
+import DashboardPage from "./pages/DashboardPage/DashBoardPage";
+
 import LoadingSpinner from '../src/components/common/LoadingSpinner'
 import { Toaster } from "react-hot-toast"
 import { useQuery } from "@tanstack/react-query"
@@ -47,7 +53,13 @@ function App() {
 			  <Route path='/' element={authUser ? <HomePage /> : <Navigate to='/login' />} />
 				<Route path='/login' element={!authUser ? <LoginPage /> : <Navigate to='/' />} />
 				<Route path='/signup' element={!authUser ? <SignUpPage /> : <Navigate to='/' />} />
-				 <Route path='/exercises' element={authUser ? <Exercises /> : <Navigate to='/login' />} />
+				<Route path='/exercises' element={authUser ? <Home /> : <Navigate to='/login' />} />
+        <Route path='/GenerateExercises' element={authUser ? <GenerateExercises /> : <Navigate to='/login' />} />
+        <Route path='/DiscoveryPage' element={authUser ? <DiscoveryPage /> : <Navigate to='/login' />} />
+        <Route path='/DashBoardPage' element={authUser ? <DashboardPage /> : <Navigate to='/login' />} />
+
+        <Route path="/exercise-list/:exercisePlanName" element={<ExerciseList />} />
+        {/* <Route path="/exercise-details" element={<ExerciseDetails />} /> */}
 				{/* <Route path='/profile/:username' element={authUser ? <ProfilePage /> : <Navigate to='/login' />} />  */}
 			</Routes>
       <Toaster />

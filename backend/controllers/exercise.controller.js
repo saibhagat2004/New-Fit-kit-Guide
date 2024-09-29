@@ -1,13 +1,27 @@
-import Exercise from '../models/exercise.model.js'; // Import the Exercise model
-export const getExercises = async (req, res) => {
-    try {
-        const exercises = await Exercise.find(); // Fetch all exercises from the Exercise collection
-        res.status(200).json(exercises);
-    } catch (error) {
-        console.log("Error in getExercises controller", error.message);
-        res.status(500).json({ error: "Internal Server Error" });
+// import Exercise from '../models/exercise.model.js'; // Import the Exercise model
+
+import ExercisePlan from '../models/exercise.model.js'; // Import the ExercisePlan model
+
+export const getExercisePlan = async (req, res) => {
+  const { exercisePlanName } = req.query; // Get the exercise plan name from query params
+  console.log(exercisePlanName)
+  try {
+    // Assuming each document has keys like lowerBodyExercisePlan, fullBodyExercisePlan, etc.
+    const exercisePlan = await ExercisePlan.findOne({ [exercisePlanName]: { $exists: true } }); // Search for a plan by the key
+
+    if (exercisePlan && exercisePlan[exercisePlanName]) {
+      // Return the specific exercise plan by key
+      res.status(200).json(exercisePlan[exercisePlanName]);
+    } else {
+      res.status(404).json({ message: "Exercise Plan Not Found" });
     }
+  } catch (error) {
+    console.error("Error in getExercisePlan controller:", error.message);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 };
+
+
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
@@ -65,3 +79,5 @@ export const FilterExercise = async (req, res) => {
     res.status(500).json({ error: "Failed to generate exercise plan." });
   }
 };
+
+
