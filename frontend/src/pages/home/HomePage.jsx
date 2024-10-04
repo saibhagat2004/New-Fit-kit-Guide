@@ -6,7 +6,7 @@ import Navbar from "../../components/common/NavBar";
 import CuratedExercise from "../curatedExercise/CuratedExercise";
 import { Link } from "react-router-dom";
 import image1 from '../../../public/ExeciseImg/young-fitness-man-studio (1).jpg';
-
+import legsImg from '../../../public/ExeciseImg/Legs workout.jpeg'
 // Card component for "Generate Your Plan with AI"
 const GeneratePlanCard = () => {
   return (
@@ -46,7 +46,7 @@ const HomePage = () => {
             {/* Curated Exercises */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-9 ml-0 lg:ml-12">
               <CuratedExercise exercisePlanName='fullBodyExercisePlan' title='Full Body Challenge' img={image1} />
-              <CuratedExercise exercisePlanName='lowerBodyExercisePlan'  title='Lower Body Challenge' img={image1}  />
+              <CuratedExercise exercisePlanName='lowerBodyExercisePlan'  title='Lower Body Challenge' img={legsImg}  />
               {/* <CuratedExercise key={3} /> */}
             </div>
             <h1 className="text-orange-500 font-bold text-2xl ml-0 lg:ml-12 py-4">Pain Relief Exercise: </h1>

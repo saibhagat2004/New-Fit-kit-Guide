@@ -1,0 +1,31 @@
+
+.heatmap-container {
+  background-color: #1f2937; /* Dark theme */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.color-empty {
+  fill: #2f2f2f;
+}
+
+.color-scale-1 {
+  fill: #d4f5d4; /* Light green */
+}
+
+.color-scale-2 {
+  fill: #a9e5a9; /* Medium green */
+}
+
+.color-scale-3 {
+  fill: #79d679; /* Stronger green */
+}
+
+.color-scale-4 {
+  fill: #49c749; /* Darker green */
+}
+
+.color-scale-5 {
+  fill: #28a228; /* Dark green */
+}

@@ -55,6 +55,8 @@ export const FilterExercise = async (req, res) => {
         }
         
         Provide 1 warm-up, 3 primary, 2 secondary, and 1 cooldown exercise. Only return the JSON and nothing else.
+        **If Equipment: None or  empty, ensure that all exercises suggested do not require any equipment.**
+
     `;
 
     // Generate content from the model
