@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 // import openai  from "openai"; 
 import bodyParser from 'body-parser';
 // import {v2 as cloudinary} from "cloudinary"
-import connectMongoDB  from "./db/connectMongoDb.js";
+import connectMongoDB  from "./db/connectMongoDB.js";
 import cookieParser from "cookie-parser";
 
 import authRoutes from "./routers/auth.route.js"
