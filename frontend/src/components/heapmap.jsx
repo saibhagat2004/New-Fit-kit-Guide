@@ -13,9 +13,11 @@ const Heatmap = () => {
     { date: '2024-10-01', count: 3 },
     { date: '2024-5-04', count: 3 },
     { date: '2024-6-03', count: 3 },
-    { date: '2024-5-03', count: 3 },
-
-
+    { date: '2024-5-028', count: 3 },
+    { date: '2024-5-029', count: 3 },
+    { date: '2024-8-03', count: 3 },
+    { date: '2024-8-05', count: 3 },
+    { date: '2024-8-06', count: 5 },
     // Add more data as needed
   ];
 

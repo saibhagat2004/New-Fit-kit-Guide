@@ -26,6 +26,10 @@ const exercisePlanSchema = new mongoose.Schema({
   lowerBodyExercisePlan: Object, // Define schema for different exercise plans
   fullBodyExercisePlan: Object,
   upperBodyExercisePlan: Object,
+  backPainReliefExercisePlan: Object,
+  absExercisePlan:Object,
+  kneePainReliefExercisePlan:Object,
+
   // Add more plans as needed
 });
 

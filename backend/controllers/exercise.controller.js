@@ -8,9 +8,17 @@ export const getExercisePlan = async (req, res) => {
   try {
     // Assuming each document has keys like lowerBodyExercisePlan, fullBodyExercisePlan, etc.
     const exercisePlan = await ExercisePlan.findOne({ [exercisePlanName]: { $exists: true } }); // Search for a plan by the key
+    console.log(exercisePlan)
+    console.log({ [exercisePlanName]: { $exists: true } });
+    console.log( exercisePlan[exercisePlanName])
+    if (exercisePlan) {
+      console.log(Object.keys(exercisePlan)); // Logs the keys of the exercisePlan object
+    }
+    console.log(exercisePlan.absExercisePlan); // Directly check for the property
 
     if (exercisePlan && exercisePlan[exercisePlanName]) {
-      // Return the specific exercise plan by key
+      // Return the specific exercise plan by key'
+      // console.log(exercisePlan[exercisePlanName])
       res.status(200).json(exercisePlan[exercisePlanName]);
     } else {
       res.status(404).json({ message: "Exercise Plan Not Found" });
@@ -32,7 +40,7 @@ export const FilterExercise = async (req, res) => {
 
     // Destructure values from req.body and ensure they are arrays
     console.log(req.body)
-    const { targetedArea, equipmentAvailable, difficulty } = req.body;
+    const { targetedArea, equipmentAvailable, difficulty, age } = req.body;
     console.log(targetedArea, equipmentAvailable, difficulty)
 
     // Validate that targetedArea and equipmentAvailable are arrays
@@ -44,7 +52,8 @@ export const FilterExercise = async (req, res) => {
         - Targeted Body Parts: ${JSON.stringify(targetedArea)}
         - Equipment: ${JSON.stringify(equipmentAvailable)}
         - Difficulty: ${JSON.stringify(difficulty)}
-        
+        - Age : ${JSON.stringify(age)}
+         
 
         Format:
         {
@@ -83,3 +92,68 @@ export const FilterExercise = async (req, res) => {
 };
 
 
+
+export const getAllExercises = async (req, res) => {
+  try {
+    // Fetch all documents from the ExercisePlan collection
+    const exercisePlans = await ExercisePlan.find({}); 
+
+    if (exercisePlans.length > 0) {
+      // Return all exercise plans
+      res.status(200).json(exercisePlans);
+    } else {
+      res.status(404).json({ message: "No Exercise Plans Found" });
+    }
+  } catch (error) {
+    console.error("Error in getAllExercises controller:", error.message);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+
+
+import UserActivity from '../models/userActivitySchema.model.js';
+
+// Controller to handle storing exercise activity
+const storeUserActivity = async (req, res) => {
+  try {
+    const { exercisePlanName, date, count } = req.body;
+
+    // Ensure all fields are provided
+    if (!exercisePlanName || !date || !count) {
+      return res.status(400).json({ error: 'Missing required fields' });
+    }
+
+    // Create a new UserActivity entry
+    const newActivity = new UserActivity({
+      exercisePlanName,
+      date: new Date(date),  // Store as Date object
+      count,
+    });
+
+    // Save the activity in the database
+    await newActivity.save();
+
+    return res.status(201).json({ message: 'Activity stored successfully' });
+  } catch (error) {
+    console.error('Error storing activity:', error);
+    return res.status(500).json({ error: 'Server error while storing activity' });
+  }
+};
+
+export { storeUserActivity };
+
+
+
+
+const getUserActivities = async (req, res) => {
+  try {
+    const userActivities = await UserActivity.find({}, { date: 1 }); // Only return the date field
+    res.status(200).json(userActivities);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to fetch user activities.' });
+  }
+};
+
+export { getUserActivities };

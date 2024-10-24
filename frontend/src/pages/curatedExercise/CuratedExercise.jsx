@@ -45,16 +45,64 @@
 
 // export default CuratedExercise;
 
+// import { useQueryClient } from '@tanstack/react-query';
+// import { useNavigate } from 'react-router-dom';
+
+
+// const CuratedExercise = ({ exercisePlanName, bannerImgUrl,title ,img}) => {
+//   const queryClient = useQueryClient();
+//   const navigate = useNavigate();
+
+
+//   const handleClick = () => {
+//     // queryClient.prefetchQuery({
+//     //   queryKey: ['exercisePlan', exercisePlanName],
+//     //   queryFn: async () => {
+//     //     const response = await fetch(`/api/exercisePlan?exercisePlanName=${exercisePlanName}`);
+//     //     return response.json();
+//     //   },
+//     // });
+//     console.log(exercisePlanName); // Debug to check value
+//     navigate(`/exercise-list/${exercisePlanName}`);
+//   };
+//   return (
+ 
+    
+// <div className="curated-card card bg-base-100 w- shadow-xl border-2 border-gray-400" onClick={handleClick} >
+//        <figure>
+//         <img
+//           src={img}
+//           alt="Exercise"
+//         />
+//       </figure>
+//       <div className="card-body">
+//         <h2 className="card-title text-orange-500">
+//           {title}
+//           <div className="badge badge-secondary">NEW</div>
+//         </h2>
+//         <p className="text-gray-300">Achieve your fitness goals with this curated exercise plan.</p>
+//         <div className="card-actions justify-end">
+//           <div className="badge badge-outline  border-orange-500">Strength</div>
+//           <div className="badge badge-outline  border-orange-500">Endurance</div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default CuratedExercise;
+
+
+
 import { useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 
-
-const CuratedExercise = ({ exercisePlanName, bannerImgUrl,title ,img}) => {
-  // const queryClient = useQueryClient();
+const CuratedExercise = ({ exercisePlanName, bannerImgUrl, title, img }) => {
+  const queryClient = useQueryClient();
   const navigate = useNavigate();
 
-
   const handleClick = () => {
+    // Optional: Uncomment if you want to prefetch query
     // queryClient.prefetchQuery({
     //   queryKey: ['exercisePlan', exercisePlanName],
     //   queryFn: async () => {
@@ -62,17 +110,15 @@ const CuratedExercise = ({ exercisePlanName, bannerImgUrl,title ,img}) => {
     //     return response.json();
     //   },
     // });
-    navigate(`/exercise-list/${exercisePlanName}`);
+
+    // Pass the banner image URL as a query parameter
+    navigate(`/exercise-list/${exercisePlanName}?bannerImgUrl=${encodeURIComponent(bannerImgUrl)}`);
   };
+
   return (
- 
-    
-<div className="curated-card card bg-base-100 w- shadow-xl border-2 border-gray-400" onClick={handleClick} >
-       <figure>
-        <img
-          src={img}
-          alt="Exercise"
-        />
+    <div className="curated-card card bg-base-100 w- shadow-xl border-2 border-gray-400" onClick={handleClick}>
+      <figure>
+        <img src={img} alt="Exercise" />
       </figure>
       <div className="card-body">
         <h2 className="card-title text-orange-500">
@@ -81,8 +127,8 @@ const CuratedExercise = ({ exercisePlanName, bannerImgUrl,title ,img}) => {
         </h2>
         <p className="text-gray-300">Achieve your fitness goals with this curated exercise plan.</p>
         <div className="card-actions justify-end">
-          <div className="badge badge-outline  border-orange-500">Strength</div>
-          <div className="badge badge-outline  border-orange-500">Endurance</div>
+          <div className="badge badge-outline border-orange-500">Strength</div>
+          <div className="badge badge-outline border-orange-500">Endurance</div>
         </div>
       </div>
     </div>
@@ -90,4 +136,3 @@ const CuratedExercise = ({ exercisePlanName, bannerImgUrl,title ,img}) => {
 };
 
 export default CuratedExercise;
-
