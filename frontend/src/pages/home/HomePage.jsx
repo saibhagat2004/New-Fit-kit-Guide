@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import Navbar from "../../components/common/NavBar";
 import CuratedExercise from "../curatedExercise/CuratedExercise";
 import { Link } from "react-router-dom";
-import Calendar from "../../components/common/calender";
+import Calendar from "../../components/common/Calender";
 import { useState ,useEffect } from "react";
 
 import image1 from '../../../public/ExeciseImg/young-fitness-man.jpeg';
