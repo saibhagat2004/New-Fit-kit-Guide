@@ -3,7 +3,7 @@ import { lazy, Suspense, useEffect } from "react";
 import HomePage from './pages/home/HomePage';
 import LoginPage from './pages/auth/login/loginPage';
 import SignUpPage from "./pages/auth/signup/SignUpPage";
-import GenerateExercises from "./pages/Exercises_Page/AllExercises"
+import GenerateExercises from "./pages/Exercises_Page/ExerciseInputForm"
 // import DiscoveryPage from "./pages/DiscoveryPage"
 import ExerciseList from './pages/Exercises_Page/ExerciseList';
 // import ExerciseDetails from './pages/Exercises_Page/ExerciseDetail';
@@ -47,9 +47,10 @@ function App() {
   });
   if (isLoading) {
     return (
-      <div className='h-screen flex justify-center items-center'>
-        <LoadingSpinner size='lg' />
+      <div className="h-screen flex justify-center items-center">
+          <LoadingSpinner size="lg" />
       </div>
+
     );
   } 
   return (
@@ -69,7 +70,6 @@ function App() {
             {/* <Route path='/profile/:username' element={authUser ? <ProfilePage /> : <Navigate to='/login' />} />  */}
           </Routes>
       </Suspense>
-     
       <Toaster />
     </>
   );
