@@ -179,6 +179,7 @@ const ExerciseList = () => {
         const data = await response.json();
         setExercisePlan(data);
         setIsLoading(false);
+      // eslint-disable-next-line no-unused-vars
       } catch (err) {
         setError('Error loading the exercise plan');
         setIsLoading(false);

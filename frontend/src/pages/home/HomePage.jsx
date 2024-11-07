@@ -1,18 +1,19 @@
 
 
-
-import { useQuery } from "@tanstack/react-query";
+import { lazy,Suspense } from "react";
 import Navbar from "../../components/common/NavBar";
-import CuratedExercise from "../curatedExercise/CuratedExercise";
 import { Link } from "react-router-dom";
-import Calendar from "../../components/common/Calender";
+// import Calendar from "../../components/common/Calender";
 import { useState ,useEffect } from "react";
-
 import image1 from '../../../public/ExeciseImg/young-fitness-man.jpeg';
 import legsImg from '../../../public/ExeciseImg/Legs workout.jpeg'
 import absImg from '../../../public/ExeciseImg/abs exerocse.jpeg'
 import backpainImg from "../../../public/ExeciseImg/backpainimg.jpeg"
 import kneepainImg from "../../../public/ExeciseImg/kneepain.jpeg"
+
+const Calendar = lazy(()=> import('../../components/common/Calender'))
+const CuratedExercise = lazy(()=> import('../curatedExercise/CuratedExercise'))
+
 // Card component for "Generate Your Plan with AI"
 const GeneratePlanCard = () => {
   return (
@@ -27,7 +28,6 @@ const GeneratePlanCard = () => {
 };
 
 const HomePage = () => {
-  const { data: authUser } = useQuery({ queryKey: ["authUser"] });
   // const exerciseDates = [
   //   "2024-10-03",
   //   "2024-10-07",
@@ -138,7 +138,9 @@ const HomePage = () => {
 
       {/* Calendar Section */}
       <div className="col-span-12 lg:col-span-3 flex justify-center items-start p-4">
-        <Calendar exerciseDates={userActivities} />
+        <Suspense fallback={<span className="loading loading-spinner loading-lg"></span>}>
+          <Calendar exerciseDates={userActivities} />
+        </Suspense>
       </div>
     </div>
   </div>

@@ -17,5 +17,6 @@ export const  generateTokenAndSetCookie=(userId,res)=>{
 //JWT theory
 //JSON Web Tokens (JWT) are used for securely transmitting information between parties as a JSON object.
 // This information can be verified and trusted because it is digitally signed. JWTs are commonly used for authentication and authorization purposes.
-// When a user logs in, a JWT is generated and sent to the client, which then includes the token in subsequent requests to access protected resources. This approach is stateless, meaning the server does not need to store session information, which can improve scalability and performance. Additionally, JWTs can contain custom claims, allowing for flexible and granular access control.
+// When a user logs in, a JWT is generated and sent to the client, which then includes the token in subsequent requests to access protected resources. 
+//This approach is stateless, meaning the server does not need to store session information, which can improve scalability and performance. Additionally, JWTs can contain custom claims, allowing for flexible and granular access control.
 

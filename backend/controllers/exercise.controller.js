@@ -54,7 +54,7 @@ export const FilterExercise = async (req, res) => {
         - Difficulty: ${JSON.stringify(difficulty)}
         - Age : ${JSON.stringify(age)}
          
-
+        Ensure that only exercises requiring available equipment are suggested. For users of older age, recommend exercises that are safe and minimize risk of injury due to weak bones.
         Format:
         {
             "warmUp": [ { "name": "Exercise", "instruction": "Brief instruction", "common_mistakes": "3 mistakes in array", "reps": "Based on difficulty" } ],
@@ -64,8 +64,8 @@ export const FilterExercise = async (req, res) => {
         }
         
         Provide 1 warm-up, 3 primary, 2 secondary, and 1 cooldown exercise. Only return the JSON and nothing else.
-        **If Equipment: None or  empty, ensure that all exercises suggested do not require any equipment.**
-
+        **If Equipment: None or No or  empty, ensure that all exercises suggested do not require any equipment.**
+        
     `;
 
     // Generate content from the model
