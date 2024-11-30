@@ -144,8 +144,6 @@ const storeUserActivity = async (req, res) => {
 export { storeUserActivity };
 
 
-
-
 const getUserActivities = async (req, res) => {
   try {
     const userActivities = await UserActivity.find({}, { date: 1 }); // Only return the date field
@@ -157,3 +155,4 @@ const getUserActivities = async (req, res) => {
 };
 
 export { getUserActivities };
+

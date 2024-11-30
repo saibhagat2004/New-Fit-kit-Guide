@@ -1,7 +1,8 @@
 
 
+
+
 import { lazy,Suspense } from "react";
-import Navbar from "../../components/common/NavBar";
 import { Link } from "react-router-dom";
 // import Calendar from "../../components/common/Calender";
 import { useState ,useEffect } from "react";
@@ -10,6 +11,7 @@ import legsImg from '../../../public/ExeciseImg/Legs workout.jpeg'
 import absImg from '../../../public/ExeciseImg/abs exerocse.jpeg'
 import backpainImg from "../../../public/ExeciseImg/backpainimg.jpeg"
 import kneepainImg from "../../../public/ExeciseImg/kneepain.jpeg"
+
 
 const Calendar = lazy(()=> import('../../components/common/Calender'))
 const CuratedExercise = lazy(()=> import('../curatedExercise/CuratedExercise'))
@@ -40,6 +42,7 @@ const HomePage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
+
   useEffect(() => {
     const fetchUserActivities = async () => {
       try {
@@ -66,6 +69,8 @@ const HomePage = () => {
     fetchUserActivities();
   }, []);
 
+  
+
   if (isLoading) return ;
   if (error) return <div>Error loading data: {error}</div>;
 
@@ -77,10 +82,6 @@ const HomePage = () => {
   >
     {/* Grid Container */}
     <div className="grid grid-cols-12 gap-7">
-      {/* Navbar spanning the full width */}
-      <div className="sticky top-0 z-50 col-span-12">
-        <Navbar />
-      </div>
 
       {/* Main Content */}
       <div className="col-span-12 lg:col-span-9 p-4">

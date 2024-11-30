@@ -1,11 +1,9 @@
-import CuratedExercise from "./curatedExercise/CuratedExercise";
-import Navbar from "../components/common/NavBar";
-
-import fullbodyImg from '../../public/ExeciseImg/young-fitness-man.jpeg';
-import legsImg from '../../public/ExeciseImg/Legs workout.jpeg'
-import absImg from '../../public/ExeciseImg/abs exerocse.jpeg'
-import backpainImg from "../../public/ExeciseImg/backpainimg.jpeg"
-import kneepainImg from "../../public/ExeciseImg/kneepain.jpeg"
+import CuratedExercise from "../curatedExercise/CuratedExercise";
+import fullbodyImg from '../../../public/ExeciseImg/young-fitness-man.jpeg';
+import legsImg from '../../../public/ExeciseImg/Legs workout.jpeg'
+import absImg from '../../../public/ExeciseImg/abs exerocse.jpeg'
+import backpainImg from "../../../public/ExeciseImg/backpainimg.jpeg"
+import kneepainImg from "../../../public/ExeciseImg/kneepain.jpeg"
 
 const DiscoverPage = () => {
   return (
@@ -14,9 +12,9 @@ const DiscoverPage = () => {
         {/* Grid Container */}
         <div className="">
           {/* Navbar spanning the full width */}
-          <div className=" sticky top-0 z-50 col-span-12">
+          {/* <div className=" sticky top-0 z-50 col-span-12">
             <Navbar />
-          </div>
+          </div> */}
 
           {/* Main Content */}
           <div className="">

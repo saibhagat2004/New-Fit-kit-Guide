@@ -1,23 +1,24 @@
 import { Navigate, Route,Routes } from "react-router-dom"
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense } from "react";
 import HomePage from './pages/home/HomePage';
 import LoginPage from './pages/auth/login/loginPage';
 import SignUpPage from "./pages/auth/signup/SignUpPage";
-import GenerateExercises from "./pages/Exercises_Page/ExerciseInputForm"
+import GenerateExercises from "./pages/GenerateExercise/generateExercise"
 // import DiscoveryPage from "./pages/DiscoveryPage"
-import ExerciseList from './pages/Exercises_Page/ExerciseList';
+import ExerciseList from './pages/curatedExercise/ExerciseList';
 // import ExerciseDetails from './pages/Exercises_Page/ExerciseDetail';
 import DashBoardPage from "./pages/DashboardPage/DashBoardPage";
 import LoadingSpinner from '../src/components/common/LoadingSpinner'
 import { Toaster } from "react-hot-toast"
 import { useQuery } from "@tanstack/react-query"
+import Navbar from "./components/common/NavBar";
 
-const DiscoveryPage = lazy(() => import('./pages/DiscoveryPage'))
+const DiscoveryPage = lazy(() => import('./pages/home/DiscoveryPage'))
 
 function App() {
-  useEffect(()=>{
+  // useEffect(()=>{
 
-  },[]);
+  // },[]);
   const {data:authUser,isLoading}=useQuery({      	// authUser is not directly storing the data fetched from the API; rather, it is a variable that holds the extracted data from the object returned by useQuery .
     // we use query key to give unique name to our query and can be access anywhere Later.
     queryKey:['authUser'],
@@ -37,13 +38,13 @@ function App() {
                                     // handled by a try...catch block or will terminate the
                                     // script if not caught.
         }
+        console.log(data)
         return data;
       } catch (error) {
         throw new Error(error)
       }
     },
-    staleTime: Infinity, // Prevents automatic refetch by marking data as always fresh
-    cacheTime: Infinity, // Keeps data in cache indefinitely
+    retry:false //only load onces 
   });
   if (isLoading) {
     return (
@@ -56,6 +57,9 @@ function App() {
   return (
     <>
       <Suspense  fallback={<span className="loading loading-spinner loading-lg"></span>}>
+      {authUser &&     <div className="sticky top-0 z-50 col-span-12">
+        <Navbar />
+      </div>}
           <Routes>
             <Route path='/' element={authUser ? <HomePage /> : <Navigate to='/login' />} />
             <Route path='/login' element={!authUser ? <LoginPage /> : <Navigate to='/' />} />

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useQuery } from "@tanstack/react-query";
-import Navbar from '../../components/common/NavBar';
 import LoadingSpinner from '../../components/common/LoadingSpinner';
 
 const ExerciseInputForm = () => {
@@ -85,9 +84,7 @@ const ExerciseInputForm = () => {
 
   return (
     <>
-      <div className="sticky top-0 z-50 ">
-        <Navbar />
-      </div>
+
       <div className="p-6 bg-black min-h-screen flex flex-col items-center justify-center">
         
         {/* Error Message */}

@@ -1,10 +1,10 @@
 
 import { useEffect, useState } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
-import Navbar from "../../components/common/NavBar";
 import defalulImg from '../../../public/ExeciseImg/young-fitness-man.jpeg';
-import Modal from '../../pages/Exercises_Page/exerciseModal'; // Import your Modal component
+import Modal from './exerciseModal'; // Import your Modal component
 import toast from "react-hot-toast";
+import LoadingSpinner from "../../components/common/LoadingSpinner"
 
 const ExerciseList = () => {
   const { exercisePlanName } = useParams(); // Get the exercise plan name from the URL
@@ -48,14 +48,20 @@ const ExerciseList = () => {
     setSelectedExercise(null); // Clear selected exercise
   };
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <LoadingSpinner />
+      </div>
+    );
+  }
+    if (error) return <div>{error}</div>;
 
   const handleCompleteExercise = async () => {
     const currentDate = new Date().toISOString().split('T')[0]; 
     // const exercisePlanName = {exercisePlanName};  // dynamically pass the current exercise plan name
     const count = 1;  // or pass the number of exercises completed if applicable
-  
+    
     try {
       const res = await fetch('/api/exercise/storeActivity', {
         method: 'POST',
@@ -78,9 +84,10 @@ const ExerciseList = () => {
       console.error('Error storing activity:', error.message);
     }
   };
+  
   return (
     <div style={{ backgroundImage: `url('../../../public/black-gradient.jpg')` }}>
-      <Navbar />
+
 
       <div className="container mx-auto p-4 bg-zinc-950 text-white">
         {/* Hero section */}
@@ -204,7 +211,7 @@ const ExerciseList = () => {
 
 <div className="flex justify-center">
   <button
-    className="bg-orange-500 text-white px-4 py-2 rounded mt-4"
+    className="bg-orange-500 text-white mb-7 px-4 py-2 rounded mt-4"
     onClick={handleCompleteExercise}
   >
     Complete Exercise

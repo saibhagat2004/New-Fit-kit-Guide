@@ -9,6 +9,7 @@ import cookieParser from "cookie-parser";
 
 import authRoutes from "./routers/auth.route.js"
 import exerciseRouter from "./routers/exercise.route.js"
+import userRouter from "./routers/user.route.js"
 
 dotenv.config(); //use to read .env content
 // cloudinary.config(
@@ -32,6 +33,7 @@ app.use(cookieParser());  // parses cookies attached to the client request objec
 
 app.use("/api/auth",authRoutes);
 app.use("/api/exercise",exerciseRouter);  
+app.use("/api/users",userRouter);
 
  
  if (process.env.NODE_ENV === "production") {         //if we not hit our endpoint run this
