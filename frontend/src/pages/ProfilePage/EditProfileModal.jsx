@@ -34,7 +34,6 @@ const EditProfileModal = ({ authUser }) => {
         setErrors((prev) => ({ ...prev, weight: "" })); // Clear the error
       }
     } else if (name === "height") {
-		const value = parseFloat(value);
       if (value <= 0 || value > 11) {
         setErrors((prev) => ({
           ...prev,
@@ -58,7 +57,7 @@ const EditProfileModal = ({ authUser }) => {
       });
     }
   }, [authUser]);
-  
+
 
   return (
     <>
@@ -84,14 +83,14 @@ const EditProfileModal = ({ authUser }) => {
               }}
             >
               <div className="flex flex-wrap gap-2">
-                <input
+                {/* <input
                   type="text"
                   placeholder="Full Name"
                   className="flex-1 input border border-gray-700 rounded p-2 input-md bg-gray-900 text-white"
                   value={formData.fullName}
                   name="fullName"
                   onChange={handleInputChange}
-                />
+                /> */}
                 <input
                   type="text"
                   placeholder="Username"
