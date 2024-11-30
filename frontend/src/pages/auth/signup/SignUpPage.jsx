@@ -91,7 +91,7 @@ const SignUpPage = () => {
                 <MdOutlineMail className="absolute top-1/2 transform -translate-y-1/2 left-3 text-gray-400" />
                 <input
                   type="email"
-                  placeholder="Email"
+                  placeholder="Email         eg. user@gmail.com"
                   name="email"
                   onChange={handleInputChange}
                   value={formData.email}

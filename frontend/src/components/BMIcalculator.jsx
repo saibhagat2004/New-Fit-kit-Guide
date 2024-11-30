@@ -5,8 +5,8 @@ import { useQuery } from "@tanstack/react-query";
 
 const BMICalculator = () => {
   const { data: authUser } = useQuery({ queryKey: ["authUser"] });
-  const [heightInFeet, setHeightInFeet] = useState(authUser?.height); // Default to 5 feet
-  const [weight, setWeight] = useState(authUser?.weight); // Default to 60 kg
+  const [heightInFeet, setHeightInFeet] = useState(authUser?.height || 5); // Default to 5 feet
+  const [weight, setWeight] = useState(authUser?.weight || 60); // Default to 60 kg
   const [bmi, setBmi] = useState(null);
   const [category, setCategory] = useState('');
   const [isEditing, setIsEditing] = useState(false); // State for showing/hiding input fields
@@ -53,6 +53,14 @@ const BMICalculator = () => {
   useEffect(() => {
     handleCalculate();
   }, [heightInFeet, weight]);
+
+  useEffect(() => {
+    if (authUser) {
+      // Set initial values from authUser profile data
+      setHeightInFeet(authUser?.height || 5);
+      setWeight(authUser?.weight || 60);
+    }
+  }, [authUser]);
 
   return (
     <div className="bg-gray-800 p-6 max-w-sm mx-auto rounded-lg shadow-lg">

@@ -34,6 +34,7 @@ const EditProfileModal = ({ authUser }) => {
         setErrors((prev) => ({ ...prev, weight: "" })); // Clear the error
       }
     } else if (name === "height") {
+		const value = parseFloat(value);
       if (value <= 0 || value > 11) {
         setErrors((prev) => ({
           ...prev,
@@ -57,6 +58,7 @@ const EditProfileModal = ({ authUser }) => {
       });
     }
   }, [authUser]);
+  
 
   return (
     <>
