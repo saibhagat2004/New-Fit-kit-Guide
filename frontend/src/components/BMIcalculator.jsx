@@ -1,9 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
 
+import { useQuery } from "@tanstack/react-query";
+
 const BMICalculator = () => {
-  const [heightInFeet, setHeightInFeet] = useState(5); // Default to 5 feet
-  const [weight, setWeight] = useState(60); // Default to 60 kg
+  const { data: authUser } = useQuery({ queryKey: ["authUser"] });
+  const [heightInFeet, setHeightInFeet] = useState(authUser?.height); // Default to 5 feet
+  const [weight, setWeight] = useState(authUser?.weight); // Default to 60 kg
   const [bmi, setBmi] = useState(null);
   const [category, setCategory] = useState('');
   const [isEditing, setIsEditing] = useState(false); // State for showing/hiding input fields
