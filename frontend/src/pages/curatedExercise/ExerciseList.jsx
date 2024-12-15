@@ -5,6 +5,7 @@ import defalulImg from '../../../public/ExeciseImg/young-fitness-man.jpeg';
 import Modal from './exerciseModal'; // Import your Modal component
 import toast from "react-hot-toast";
 import LoadingSpinner from "../../components/common/LoadingSpinner"
+import { useQuery } from "@tanstack/react-query";
 
 const ExerciseList = () => {
   const { exercisePlanName } = useParams(); // Get the exercise plan name from the URL
@@ -18,6 +19,8 @@ const ExerciseList = () => {
   // Get banner image URL from query parameters
   const queryParams = new URLSearchParams(location.search);
   const bannerImgUrl = queryParams.get('bannerImgUrl');
+  const { data: authUser } = useQuery({ queryKey: ["authUser"] });
+
 
   useEffect(() => {
     const fetchExercisePlan = async () => {
@@ -57,34 +60,72 @@ const ExerciseList = () => {
   }
     if (error) return <div>{error}</div>;
 
+  // const handleCompleteExercise = async () => {
+  //   const currentDate = new Date().toISOString().split('T')[0]; 
+  //   // const exercisePlanName = {exercisePlanName};  // dynamically pass the current exercise plan name
+  //   const count = 1;  // or pass the number of exercises completed if applicable
+    
+  //   try {
+  //     const res = await fetch('/api/exercise/storeActivity', {
+  //       method: 'POST',
+  //       headers: { 'Content-Type': 'application/json' },
+  //       body: JSON.stringify({
+  //         exercisePlanName,
+  //         date: currentDate,
+  //         count,
+  //       }),
+  //     });
+  
+  //     const data = await res.json();
+  //     if (!res.ok) {
+  //       throw new Error(data.error || 'Failed to store activity');
+  //     }
+  //     console.log('Activity stored successfully', data);
+  //     toast.success("Exercise completed");
+
+  //   } catch (error) {
+  //     console.error('Error storing activity:', error.message);
+  //   }
+  // };
+
+
+  
   const handleCompleteExercise = async () => {
     const currentDate = new Date().toISOString().split('T')[0]; 
-    // const exercisePlanName = {exercisePlanName};  // dynamically pass the current exercise plan name
-    const count = 1;  // or pass the number of exercises completed if applicable
-    
+    const count = 1;  // Number of exercises completed or another metric
+    const userId = authUser?._id; // Replace `authUser._id` with your method of accessing the user's ID
+  
+    if (!userId) {
+      console.error('User ID is required to store activity');
+      return;
+    }
+  
     try {
-      const res = await fetch('/api/exercise/storeActivity', {
+      const res = await fetch(`/api/exercise/storeActivity/${userId}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          exercisePlanName,
+          exercisePlanName,  // Dynamically pass the exercise plan name
           date: currentDate,
           count,
         }),
       });
   
       const data = await res.json();
+  
       if (!res.ok) {
         throw new Error(data.error || 'Failed to store activity');
       }
+  
       console.log('Activity stored successfully', data);
       toast.success("Exercise completed");
-
     } catch (error) {
       console.error('Error storing activity:', error.message);
+      toast.error("Failed to store activity");
     }
   };
   
+
   return (
     <div style={{ backgroundImage: `url('../../../public/black-gradient.jpg')` }}>
 

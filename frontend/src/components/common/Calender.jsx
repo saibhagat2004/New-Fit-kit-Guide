@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 // import { useState, useEffect } from "react";
 // import { format, getDaysInMonth, isToday, parse, isSameDay, startOfDay } from "date-fns";
 // import classNames from "classnames";
@@ -82,12 +83,14 @@ const Calendar = ({ exerciseDates }) => {
     );
     setDaysInMonth(dates);
   }, [currentDate]);
-
-  const isExerciseDone = (day) =>
-    // eslint-disable-next-line react/prop-types
+  
+  
+  const isExerciseDone = (day) => 
+    exerciseDates?.length > 0 &&
     exerciseDates.some((exerciseDate) =>
       isSameDay(parse(exerciseDate, "yyyy-MM-dd", new Date()), day)
     );
+  
 
   const handlePreviousMonth = () => {
     setCurrentDate((prevDate) => {

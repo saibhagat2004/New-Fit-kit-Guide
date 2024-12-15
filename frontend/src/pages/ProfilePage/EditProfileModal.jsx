@@ -19,12 +19,19 @@ const EditProfileModal = ({ authUser }) => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-
-    // Update the form data
+  
     setFormData({ ...formData, [name]: value });
-
-    // Validate input based on the field name
-    if (name === "weight") {
+  
+    if (name === "height") {
+      if (value < 1 || value > 11) {
+        setErrors((prev) => ({
+          ...prev,
+          height: "Height must be between 1.0ft and 11.0ft.",
+        }));
+      } else {
+        setErrors((prev) => ({ ...prev, height: "" })); // Clear the error
+      }
+    } else if (name === "weight") {
       if (value < 10 || value > 120) {
         setErrors((prev) => ({
           ...prev,
@@ -32,15 +39,6 @@ const EditProfileModal = ({ authUser }) => {
         }));
       } else {
         setErrors((prev) => ({ ...prev, weight: "" })); // Clear the error
-      }
-    } else if (name === "height") {
-      if (value <= 0 || value > 11) {
-        setErrors((prev) => ({
-          ...prev,
-          height: "Height must be between 1ft and 11ft.",
-        }));
-      } else {
-        setErrors((prev) => ({ ...prev, height: "" })); // Clear the error
       }
     }
   };
@@ -128,6 +126,7 @@ const EditProfileModal = ({ authUser }) => {
                   <input
                     type="number"
                     placeholder="Height"
+                    step="0.1" // Allows decimal inputs
                     className="input border border-gray-700 rounded p-2 input-md w-full bg-gray-900 text-white"
                     value={formData.height}
                     name="height"

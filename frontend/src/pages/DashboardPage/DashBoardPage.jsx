@@ -20,26 +20,32 @@ function DashboardPage() {
   useEffect(() => {
     const fetchUserActivities = async () => {
       try {
-        const response = await fetch("/api/exercise/getUserActivities");
+        const response = await fetch(`/api/exercise/getUserActivities/${authUser._id}`);
+    
         if (!response.ok) {
-          throw new Error("Failed to fetch user activities");
+          throw new Error('Failed to fetch user activities');
         }
-
+    
         const data = await response.json();
-
+    
+        if (data.length === 0) {
+          setUserActivities([]); // No activities found
+          setIsLoading(false);
+          return;
+        }
+    
         // Format the dates to 'yyyy-MM-dd'
         const formattedDates = data.map(activity =>
           new Date(activity.date).toISOString().split('T')[0]
         );
-        
+    
         setUserActivities(formattedDates);
         setIsLoading(false);
       } catch (error) {
-        setError(error.message);
+        console.error(error.message);
         setIsLoading(false);
       }
     };
-
     fetchUserActivities();
   }, []);
 

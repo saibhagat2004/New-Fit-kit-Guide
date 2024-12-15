@@ -112,22 +112,25 @@ export const getAllExercises = async (req, res) => {
 
 
 
+
+
 import UserActivity from '../models/userActivitySchema.model.js';
 
-// Controller to handle storing exercise activity
 const storeUserActivity = async (req, res) => {
   try {
+    const { id: userId } = req.params; // Extract userId from route params
     const { exercisePlanName, date, count } = req.body;
 
     // Ensure all fields are provided
-    if (!exercisePlanName || !date || !count) {
+    if (!userId || !exercisePlanName || !date || !count) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
     // Create a new UserActivity entry
     const newActivity = new UserActivity({
+      userId, // Associate the activity with the user
       exercisePlanName,
-      date: new Date(date),  // Store as Date object
+      date: new Date(date), // Store as a Date object
       count,
     });
 
@@ -141,18 +144,24 @@ const storeUserActivity = async (req, res) => {
   }
 };
 
-export { storeUserActivity };
-
 
 const getUserActivities = async (req, res) => {
   try {
-    const userActivities = await UserActivity.find({}, { date: 1 }); // Only return the date field
-    res.status(200).json(userActivities);
+    const { id: userId } = req.params; // Extract userId from route params
+
+    if (!userId) {
+      return res.status(400).json({ error: 'User ID is required' });
+    }
+
+    // Fetch activities for the specific user
+    const userActivities = await UserActivity.find({ userId }, { date: 1 }); // Fetch only the `date` field
+
+    return res.status(200).json(userActivities);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Failed to fetch user activities.' });
+    console.error('Error fetching activities:', error);
+    return res.status(500).json({ error: 'Failed to fetch user activities.' });
   }
 };
 
-export { getUserActivities };
+export { getUserActivities,storeUserActivity };
 

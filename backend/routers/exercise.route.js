@@ -7,8 +7,8 @@ const router= express.Router();
 router.get("/exercisePlan", getExercisePlan);
 router.post("/FilterExercise",FilterExercise);
 router.get("/allExercise",getAllExercises )
-router.post("/storeActivity",storeUserActivity)
-router.get('/getUserActivities', getUserActivities);
+router.post("/storeActivity/:id",storeUserActivity)
+router.get('/getUserActivities/:id', getUserActivities);
 
 
 

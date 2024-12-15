@@ -11,6 +11,7 @@ import legsImg from '../../../public/ExeciseImg/Legs workout.jpeg'
 import absImg from '../../../public/ExeciseImg/abs exerocse.jpeg'
 import backpainImg from "../../../public/ExeciseImg/backpainimg.jpeg"
 import kneepainImg from "../../../public/ExeciseImg/kneepain.jpeg"
+import { useQuery } from "@tanstack/react-query";
 
 
 const Calendar = lazy(()=> import('../../components/common/Calender'))
@@ -41,35 +42,70 @@ const HomePage = () => {
   const [userActivities, setUserActivities] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { data: authUser } = useQuery({ queryKey: ["authUser"] });
 
+  // useEffect(() => {
+  //   const fetchUserActivities = async () => {
+  //     try {
+  //       const response = await fetch("/api/exercise/getUserActivities");
+  //       if (!response.ok) {
+  //         throw new Error("Failed to fetch user activities");
+  //       }
+
+  //       const data = await response.json();
+  //       console.log(authUser?._id);
+  //       // Format the dates to 'yyyy-MM-dd'
+  //       const formattedDates = data.map(activity =>
+  //         new Date(activity.date).toISOString().split('T')[0]
+  //       );
+        
+  //       setUserActivities(formattedDates);
+  //       setIsLoading(false);
+  //     } catch (error) {
+  //       setError(error.message);
+  //       setIsLoading(false);
+  //     }
+  //   };
+
+  //   fetchUserActivities();
+  // }, []);
 
   useEffect(() => {
     const fetchUserActivities = async () => {
       try {
-        const response = await fetch("/api/exercise/getUserActivities");
+        const response = await fetch(`/api/exercise/getUserActivities/${authUser._id}`);
+    
         if (!response.ok) {
-          throw new Error("Failed to fetch user activities");
+          throw new Error('Failed to fetch user activities');
         }
-
+    
         const data = await response.json();
-
+    
+        if (data.length === 0) {
+          setUserActivities([]); // No activities found
+          setIsLoading(false);
+          return;
+        }
+    
         // Format the dates to 'yyyy-MM-dd'
         const formattedDates = data.map(activity =>
           new Date(activity.date).toISOString().split('T')[0]
         );
-        
+    
         setUserActivities(formattedDates);
         setIsLoading(false);
       } catch (error) {
-        setError(error.message);
+        console.error(error.message);
         setIsLoading(false);
       }
     };
-
-    fetchUserActivities();
-  }, []);
-
+    
   
+    fetchUserActivities();
+  }, [authUser]);
+  
+
+
 
   if (isLoading) return ;
   if (error) return <div>Error loading data: {error}</div>;
