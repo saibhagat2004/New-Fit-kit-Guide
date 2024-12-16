@@ -1,7 +1,3 @@
-
-
-
-
 import { lazy,Suspense } from "react";
 import { Link } from "react-router-dom";
 // import Calendar from "../../components/common/Calender";
@@ -24,52 +20,17 @@ const GeneratePlanCard = () => {
       <h3 className="text-xl font-bold mb-2">Generate Your Plan with AI</h3>
       <p>Click here to generate a custom exercise plan using AI.</p>
       <Link to="/GenerateExercises">
-        <button className="btn mt-4 rounded-lg btn-outline hover:bg-white">Start Generating</button>
+        <button className="btn mt-4 rounded-lg btn-outline  text-white hover:bg-white">Start Generating</button>
       </Link>
     </div>
   );
 };
 
 const HomePage = () => {
-  // const exerciseDates = [
-  //   "2024-10-03",
-  //   "2024-10-07",
-  //   "2024-10-11",
-  //   "2024-10-08", // highlight these dates
-  // ];
-   // Fetching user activity data using the fetch API
-  // Local state to store user activities and loading/error status
   const [userActivities, setUserActivities] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error] = useState(null);
   const { data: authUser } = useQuery({ queryKey: ["authUser"] });
-
-  // useEffect(() => {
-  //   const fetchUserActivities = async () => {
-  //     try {
-  //       const response = await fetch("/api/exercise/getUserActivities");
-  //       if (!response.ok) {
-  //         throw new Error("Failed to fetch user activities");
-  //       }
-
-  //       const data = await response.json();
-  //       console.log(authUser?._id);
-  //       // Format the dates to 'yyyy-MM-dd'
-  //       const formattedDates = data.map(activity =>
-  //         new Date(activity.date).toISOString().split('T')[0]
-  //       );
-        
-  //       setUserActivities(formattedDates);
-  //       setIsLoading(false);
-  //     } catch (error) {
-  //       setError(error.message);
-  //       setIsLoading(false);
-  //     }
-  //   };
-
-  //   fetchUserActivities();
-  // }, []);
-
   useEffect(() => {
     const fetchUserActivities = async () => {
       try {

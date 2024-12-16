@@ -154,8 +154,12 @@ const getUserActivities = async (req, res) => {
     }
 
     // Fetch activities for the specific user
-    const userActivities = await UserActivity.find({ userId }, { date: 1 }); // Fetch only the `date` field
-
+    // const userActivities = await UserActivity.find({ userId }, { date: 1 }); // Fetch only the `date` field
+    
+    const userActivities = await UserActivity.find(
+      { userId }, 
+      { exercisePlanName: 1, date: 1, _id: 0 } // Project exercisePlanName and date fields, exclude _id
+    );
     return res.status(200).json(userActivities);
   } catch (error) {
     console.error('Error fetching activities:', error);

@@ -1,7 +1,9 @@
+
+
 /* eslint-disable react/no-unescaped-entities */
 import BMICalculator from "../../components/BMIcalculator";
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 // import Heatmap from "../../components/heapmap";
 import { Link } from "react-router-dom";
 import { MdEdit } from "react-icons/md";
@@ -12,10 +14,8 @@ import EditProfileModal from "../ProfilePage/EditProfileModal";
 function DashboardPage() {
   const { data: authUser } = useQuery({ queryKey: ["authUser"] });
   const [userActivities, setUserActivities] = useState([]);
-  
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
-  // const profileImgRef = useRef(null);
+  const [error] = useState(null);
 
   useEffect(() => {
     const fetchUserActivities = async () => {
@@ -27,22 +27,25 @@ function DashboardPage() {
         }
     
         const data = await response.json();
-    
+        console.log(data);
+
         if (data.length === 0) {
           setUserActivities([]); // No activities found
           setIsLoading(false);
           return;
         }
-    
-        // Format the dates to 'yyyy-MM-dd'
-        const formattedDates = data.map(activity =>
-          new Date(activity.date).toISOString().split('T')[0]
-        );
-    
-        setUserActivities(formattedDates);
+
+        // Keep the full activity object but format the date
+        const formattedActivities = data.map(activity => ({
+          ...activity,
+          date: new Date(activity.date).toISOString().split('T')[0], // Format date
+        }));
+
+        setUserActivities(formattedActivities);
         setIsLoading(false);
       } catch (error) {
         console.error(error.message);
+        setError(error.message);
         setIsLoading(false);
       }
     };
@@ -153,7 +156,7 @@ function DashboardPage() {
                   {/* Right Column */}
                   <div className="flex-1">
                     {isLoading && <div>Loading... </div>}
-                    <Calender exerciseDates={userActivities} />
+                    <Calender exerciseDates={userActivities.map(activity => activity.date)} />
                   </div>
                 </div>
 
@@ -163,29 +166,23 @@ function DashboardPage() {
                   <p className="text-orange-500">"Success usually comes to those who are too busy to be looking for it."</p>
                 </div>
 
-                {/* Social Links */}
-                {/* <h3 className="font-semibold text-center mt-3">Find me on</h3> */}
-                <div className="flex justify-center items-center gap-6 my-6">
-                  {/* Add icons here */}
-                </div>
-
                 {/* User Activities Section */}
                 <div className="mt-6">
-                  {/* <h3 className="font-bold text-lg">Your Activities</h3> */}
-                  {/* <ul className="text-gray-400">
-                      {userActivities.length > 0 ? (
-                        userActivities
-                          .slice() // Create a shallow copy to avoid mutating the original array
-                          .reverse() // Reverse the array to display latest activity first
-                          .map((activity, index) => (
-                            <li key={index}>
-                              {activity.exercisePlanName} on {activity.date}
-                            </li>
-                          ))
-                      ) : (
-                        <li>No activities recorded yet.</li>
-                      )}
-                   </ul> */}
+                  <h3 className="font-bold text-lg">Your Activities</h3>
+                  <ul className="text-gray-400">
+                    {userActivities.length > 0 ? (
+                      userActivities
+                        .slice()
+                        .reverse()
+                        .map((activity, index) => (
+                          <li key={index}>
+                            {activity.exercisePlanName} on {activity.date}
+                          </li>
+                        ))
+                    ) : (
+                      <li>No activities recorded yet.</li>
+                    )}
+                  </ul>
                 </div>
               </div>
             </div>
