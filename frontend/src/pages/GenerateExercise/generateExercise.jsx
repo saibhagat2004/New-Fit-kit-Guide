@@ -165,16 +165,16 @@ const ExerciseInputForm = () => {
             </button>
           </div>
           <div className="flex mt-2">
-            {equipmentOptions.map((option, idx) => (
-              <button
-                key={idx}
-                className="bg-gray-800 text-orange-500 px-3 py-1 rounded-full mr-2"
-                onClick={() => setEquipmentAvailable([...equipmentAvailable, option])}
-              >
-                {option}
-              </button>
-            ))}
-          </div>
+  {equipmentOptions.map((option, idx) => (
+    <button
+      key={idx}
+      className="bg-gray-800 text-orange-500 text-sm px-2 py-1 rounded-full mr-1"
+      onClick={() => setEquipmentAvailable([...equipmentAvailable, option])}
+    >
+      {option}
+    </button>
+  ))}
+</div>
 
           <div className="mt-2 flex flex-wrap pl-4">
             {equipmentAvailable.map((equip, index) => (

@@ -34,11 +34,11 @@ const Navbar = () => {
     },
   });
   
-  const { data: authUser } = useQuery({ queryKey: ["authUser"] });
+  // const { data: authUser } = useQuery({ queryKey: ["authUser"] });
   
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  // const toggleMenu = () => {
+  //   setIsOpen(!isOpen);
+  // };
 
   return (
     <nav className="bg-black px-8 py-4 flex justify-between items-center">

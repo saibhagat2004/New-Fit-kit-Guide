@@ -135,7 +135,7 @@ const HomePage = () => {
       </div>
 
       {/* Calendar Section */}
-      <div className="col-span-12 lg:col-span-3 flex justify-center items-start p-4">
+      <div className="col-span-12 lg:col-span-3 flex justify-center items-start mb-16 p-4">
         <Suspense fallback={<span className="loading loading-spinner loading-lg"></span>}>
           <Calendar exerciseDates={userActivities} />
         </Suspense>
