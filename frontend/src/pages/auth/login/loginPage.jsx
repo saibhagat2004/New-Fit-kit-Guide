@@ -74,7 +74,7 @@ const LoginPage = () => {
 		<div className="hero bg-base-200 min-h-screen">
     <div className="hero-content flex-col lg:flex-row">
       <div className="text-center lg:text-left min-w-20">
-        <h1 className="text-5xl font-bold">Fit Kit Guide</h1>
+        <h1 className="text-5xl font-bold ">Fit Kit Guide</h1>
         <p className="py-6 font-extrabold">
           Unlock your full potential and take the first step towards a healthier, stronger you.
         </p>

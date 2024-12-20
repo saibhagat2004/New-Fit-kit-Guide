@@ -252,7 +252,7 @@ const ExerciseList = () => {
 
 <div className="flex justify-center">
   <button
-    className="bg-orange-500 text-white mb-7 px-4 py-2 rounded mt-4"
+    className="bg-orange-500 text-white mb-20 px-4 py-2 rounded mt-4"
     onClick={handleCompleteExercise}
   >
     Complete Exercise
