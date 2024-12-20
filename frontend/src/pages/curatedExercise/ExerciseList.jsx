@@ -59,36 +59,6 @@ const ExerciseList = () => {
     );
   }
     if (error) return <div>{error}</div>;
-
-  // const handleCompleteExercise = async () => {
-  //   const currentDate = new Date().toISOString().split('T')[0]; 
-  //   // const exercisePlanName = {exercisePlanName};  // dynamically pass the current exercise plan name
-  //   const count = 1;  // or pass the number of exercises completed if applicable
-    
-  //   try {
-  //     const res = await fetch('/api/exercise/storeActivity', {
-  //       method: 'POST',
-  //       headers: { 'Content-Type': 'application/json' },
-  //       body: JSON.stringify({
-  //         exercisePlanName,
-  //         date: currentDate,
-  //         count,
-  //       }),
-  //     });
-  
-  //     const data = await res.json();
-  //     if (!res.ok) {
-  //       throw new Error(data.error || 'Failed to store activity');
-  //     }
-  //     console.log('Activity stored successfully', data);
-  //     toast.success("Exercise completed");
-
-  //   } catch (error) {
-  //     console.error('Error storing activity:', error.message);
-  //   }
-  // };
-
-
   
   const handleCompleteExercise = async () => {
     const currentDate = new Date().toISOString().split('T')[0]; 
