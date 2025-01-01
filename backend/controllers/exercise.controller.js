@@ -106,6 +106,7 @@ const exerciseImages = {
   "Dumbbell Chest Press":"https://hips.hearstapps.com/hmg-prod/images/workouts/2016/03/dumbbellbenchpress-1457043820.gif",
   "Incline Dumbbell Press": "https://cdn.jefit.com/assets/img/exercises/gifs/31.gif",
   "Dumbbell Incline Press": "https://cdn.jefit.com/assets/img/exercises/gifs/31.gif",
+  "Dumbbell Incline Bench Press": "https://cdn.jefit.com/assets/img/exercises/gifs/31.gif",
   "Dumbbell Flyes":"https://i0.wp.com/www.strengthlog.com/wp-content/uploads/2020/03/Dumbbell-Chest-Fly.gif?resize=600%2C600&ssl=1",
   "Chest Flyes":"https://i0.wp.com/www.strengthlog.com/wp-content/uploads/2020/03/Dumbbell-Chest-Fly.gif?resize=600%2C600&ssl=1",
   "Arm Circles":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlfj9NPkkDEm-aa4_WcM1Y9sJ5Q4Vj2Vbrpg&s",
