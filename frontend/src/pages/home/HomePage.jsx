@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { lazy,Suspense } from "react";
 import { Link } from "react-router-dom";
 // import Calendar from "../../components/common/Calender";
@@ -26,14 +27,31 @@ const GeneratePlanCard = () => {
   );
 };
 
-const HomePage = () => {
+const HomePage = ({ isGuest }) => {
   const [userActivities, setUserActivities] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error] = useState(null);
-  const { data: authUser } = useQuery({ queryKey: ["authUser"] });
-  useEffect(() => {
+  // eslint-disable-next-line no-unused-vars
+  const [error, setError] = useState(null);
+
+  // const { data: authUser } = useQuery({ queryKey: ["authUser"] });
+  const { data: authUser } = useQuery({ queryKey: ["authUser"]});
+
+
+    useEffect(() => {
+      
     const fetchUserActivities = async () => {
       try {
+        if (isGuest) {
+          // If the user is a guest, skip the fetch process
+          setIsLoading(false);
+          return;
+        }
+
+        if (!authUser || !authUser._id) {
+          // setError("User not authenticated.");
+          setIsLoading(false);
+          return;
+        }
         const response = await fetch(`/api/exercise/getUserActivities/${authUser._id}`);
     
         if (!response.ok) {

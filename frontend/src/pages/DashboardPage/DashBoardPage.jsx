@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 
 
 /* eslint-disable react/no-unescaped-entities */
@@ -11,7 +12,7 @@ import Avatar from "../../../public/avatars/boy1.png";
 import Calender from "../../components/common/Calender";
 import EditProfileModal from "../ProfilePage/EditProfileModal";
 
-function DashboardPage() {
+function DashboardPage({isGuest}) {
   const { data: authUser } = useQuery({ queryKey: ["authUser"] });
   const [userActivities, setUserActivities] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -20,6 +21,17 @@ function DashboardPage() {
   useEffect(() => {
     const fetchUserActivities = async () => {
       try {
+
+        if (isGuest) {
+          // If the user is a guest, skip the fetch process
+          setIsLoading(false);
+          return;
+        }
+        if (!authUser || !authUser._id) {
+          // setError("User not authenticated.");
+          setIsLoading(false);
+          return;
+        }
         const response = await fetch(`/api/exercise/getUserActivities/${authUser._id}`);
     
         if (!response.ok) {

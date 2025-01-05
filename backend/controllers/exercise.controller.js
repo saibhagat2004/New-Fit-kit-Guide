@@ -94,6 +94,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 const exerciseImages = {
   "Jumping Jacks": "https://i.gifer.com/DVfS.gif",
   "Squats": "https://media1.tenor.com/m/1NY6qOs30XIAAAAC/goblet-squad.gif",
+  "Squat": "https://media1.tenor.com/m/1NY6qOs30XIAAAAC/goblet-squad.gif",
   "Bodyweight Squats": "https://media1.tenor.com/m/1NY6qOs30XIAAAAC/goblet-squad.gif",
   "Push-Ups": "https://i.gifer.com/756z.gif",
   "Push-ups": "https://i.gifer.com/756z.gif",

@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/prop-types */
 import { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
@@ -8,7 +10,7 @@ import toast from "react-hot-toast";
 
 // import { data } from "autoprefixer";
 
-const LoginPage = () => {
+const LoginPage = ({ onGuestLogin }) => {
 	useEffect(() => {
 		const card = document.querySelector('.card');
 		if (card) {
@@ -125,6 +127,9 @@ const LoginPage = () => {
             >
               {isPending ? "Loading..." : "Login"}
             </button>
+			<button onClick={onGuestLogin} className=" btn rounded-full btn-primary text-white btn-outline w-full mt-5">
+				Login as Guest
+			</button>
             {isError && <p className="text-red-500">{error.message}</p>}
           </div>
 
