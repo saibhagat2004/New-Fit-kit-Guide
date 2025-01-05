@@ -108,7 +108,9 @@ const exerciseImages = {
   "Dumbbell Incline Press": "https://cdn.jefit.com/assets/img/exercises/gifs/31.gif",
   "Dumbbell Incline Bench Press": "https://cdn.jefit.com/assets/img/exercises/gifs/31.gif",
   "Dumbbell Flyes":"https://i0.wp.com/www.strengthlog.com/wp-content/uploads/2020/03/Dumbbell-Chest-Fly.gif?resize=600%2C600&ssl=1",
+  "Incline Dumbbell Flyes":"https://i0.wp.com/www.strengthlog.com/wp-content/uploads/2020/03/Dumbbell-Chest-Fly.gif?resize=600%2C600&ssl=1",
   "Chest Flyes":"https://i0.wp.com/www.strengthlog.com/wp-content/uploads/2020/03/Dumbbell-Chest-Fly.gif?resize=600%2C600&ssl=1",
+  "Chest Press":"https://i.pinimg.com/originals/f4/72/94/f47294c0af7d4dc0e55b83a6ce56167b.gif",
   "Arm Circles":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlfj9NPkkDEm-aa4_WcM1Y9sJ5Q4Vj2Vbrpg&s",
   "Dumbbell Row":"https://i.pinimg.com/originals/b0/01/2e/b0012e05f4bb0c758ca0ba3f36ce0ae8.gif",
   "Dumbbell Rows":"https://i.pinimg.com/originals/b0/01/2e/b0012e05f4bb0c758ca0ba3f36ce0ae8.gif",
@@ -134,10 +136,14 @@ const exerciseImages = {
   "Dumbbell Bicep Curls":"https://i0.wp.com/www.strengthlog.com/wp-content/uploads/2020/03/Concentration-curl.gif?resize=600%2C600&ssl=1",
   "Tricep Dips":"https://cdn.shopify.com/s/files/1/0449/8453/3153/files/Bench_Dips.gif?v=1722411995",
   "Dumbbell Lunges":"https://cdn.jefit.com/assets/img/exercises/gifs/136.gif",
+  "Dumbbell Lateral Raises":"https://cdn.jefit.com/assets/img/exercises/gifs/32.gif",
   "Dumbbell Push-Ups":"https://gymvisual.com/img/p/2/0/3/0/5/20305.gif",
   "Lateral Raises":"https://cdn.jefit.com/assets/img/exercises/gifs/32.gif",
+  "Dumbbell Tricep Extensions":"https://hips.hearstapps.com/hmg-prod/images/workouts/2016/03/dumbbelloverheadtricepsextension-1456956005.gif?crop=1xw:1xh;center,top&resize=1200:*",
   "Barbell Row":"https://hips.hearstapps.com/hmg-prod/images/workouts/2016/03/barbellrow-1457038583.gif",
-  "Barbell Rows":"https://hips.hearstapps.com/hmg-prod/images/workouts/2016/03/barbellrow-1457038583.gif"
+  "Barbell Rows":"https://hips.hearstapps.com/hmg-prod/images/workouts/2016/03/barbellrow-1457038583.gif",
+  "Stretching":"https://media2.giphy.com/media/WT4C8L1GaOwbHZkVZ2/giphy.gif?cid=6c09b952416avasu102r266hd5wkujgzmgsgs36wf46fs6m5&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
+  "Barbell Bicep Curls":"https://i0.wp.com/www.strengthlog.com/wp-content/uploads/2020/12/Barbell-biceps-curl.gif?resize=600%2C600&ssl=1"
 };
 
 const enrichExercisePlan = (exercisePlan) => {
@@ -180,7 +186,8 @@ export const FilterExercise = async (req, res) => {
     - Difficulty Level: ${JSON.stringify(difficulty)}
     - User's Age: ${JSON.stringify(age)}
      
-    Your primary goal is to recommend exercises that are practical for home workouts. Avoid exercises requiring complex gym equipment. Use only the equipment specified by the user. If no equipment is available, suggest bodyweight exercises or exercises that require common household items (e.g., a sturdy chair, towel, or water bottles). Ensure the recommendations are suitable for the user's age and difficulty level:
+    Your primary goal is to recommend exercises that are practical for home workouts. Avoid exercises requiring complex gym equipment. Use only the equipment specified by the user.
+    Ensure the recommendations are suitable for the user's age and difficulty level:
     - For older users, focus on low-impact exercises to minimize injury risk.
     - For younger users, include a mix of strength, flexibility, and endurance exercises.
 

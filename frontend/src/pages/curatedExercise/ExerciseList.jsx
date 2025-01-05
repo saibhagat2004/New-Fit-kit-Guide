@@ -17,8 +17,8 @@ const ExerciseList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); // State to track modal visibility
 
   // Get banner image URL from query parameters
-  const queryParams = new URLSearchParams(location.search);
-  const bannerImgUrl = queryParams.get('bannerImgUrl');
+  const queryParams = new URLSearchParams(location.search);  //location.search  contains the query string portion of the URL. The query string is the part of a URL that comes after a question mark (?), containing key-value pairs.
+  const bannerImgUrl = queryParams.get('bannerImgUrl'); // If it exists, bannerImgUrl will contain its value; otherwise, it will be null
   const { data: authUser } = useQuery({ queryKey: ["authUser"] });
 
 
@@ -120,7 +120,7 @@ const ExerciseList = () => {
           <h1 className="text-2xl font-bold text-orange-400">
             {exercisePlanName || 'Full Body & Strength'}
           </h1>
-          <p>{exercisePlan?.primary?.length || 0} Workouts</p>
+         <p>{exercisePlan?.primary?.length || 0} Workouts</p>
         </div>
 
         <div className="mt-4">
@@ -190,33 +190,25 @@ const ExerciseList = () => {
         </div>
       </div>
 
-      {/* Modal for Exercise Details
+      
       {isModalOpen && selectedExercise && (
-        <Modal onClose={closeModal}>
-          <h2 className="text-2xl font-bold text-orange-400">{selectedExercise.name}</h2>
-          <img src={selectedExercise.media_url} alt={selectedExercise.name} className="w-full h-48 object-cover rounded" />
-          <p className="mt-4 text-sm text-gray-300">Reps: {selectedExercise.repetitions}</p>
-          <p className="mt-2 text-sm text-gray-300">Instruction: {selectedExercise.instruction}</p>
-          <p className="mt-2 text-sm text-gray-300">Common Mistakes: {(selectedExercise.common_mistakes || []).join(', ') || 'None'}</p>
-        </Modal>
-      )} */}
-      {isModalOpen && selectedExercise && (
-  <Modal onClose={closeModal}>
-    <h2 className="text-2xl font-bold text-orange-400">{selectedExercise.name}</h2>
-    <img 
-      src={selectedExercise.media_url} 
-      alt={selectedExercise.name} 
-      className="w-full h-48 object-contain rounded" 
-    />
-    <p className="mt-4 text-sm text-white">Reps: {selectedExercise.repetitions}</p>
-    <p className="mt-2 text-md text-white">Instruction: </p>
-    <p className="mt-2 text-sm text-white">{selectedExercise.instruction} </p>
-    <p className="mt-2 text-sm text-white">Common Mistakes:</p>
-    <ul className="list-disc list-inside text-gray-200">
-                    {selectedExercise.common_mistakes.map((mistake, index) => (
-                      <li key={index}>{mistake}</li>
-                    ))}
-                  </ul>
+        //everything between Modal is children. it is a special props
+    <Modal onClose={closeModal}>    
+      <h2 className="text-2xl font-bold text-orange-400">{selectedExercise.name}</h2>
+      <img 
+        src={selectedExercise.media_url} 
+        alt={selectedExercise.name} 
+        className="w-full h-48 object-contain rounded" 
+      />              
+      <p className="mt-4 text-sm text-white">Reps: {selectedExercise.repetitions}</p>
+      <p className="mt-2 text-md text-white">Instruction: </p>
+      <p className="mt-2 text-sm text-white">{selectedExercise.instruction} </p>
+      <p className="mt-2 text-sm text-white">Common Mistakes:</p>
+      <ul className="list-disc list-inside text-gray-200">
+                      {selectedExercise.common_mistakes.map((mistake, index) => (
+                        <li key={index}>{mistake}</li>
+                      ))}
+                    </ul>
   </Modal>
 )}
 
