@@ -9,6 +9,8 @@ import absImg from '../../../public/ExeciseImg/abs exerocse.jpeg'
 import backpainImg from "../../../public/ExeciseImg/backpainimg.jpeg"
 import kneepainImg from "../../../public/ExeciseImg/kneepain.jpeg"
 import { useQuery } from "@tanstack/react-query";
+import LoadingSpinner from '../../components/common/LoadingSpinner'
+
 
 
 const Calendar = lazy(()=> import('../../components/common/Calender'))
@@ -86,7 +88,7 @@ const HomePage = ({ isGuest }) => {
 
 
 
-  if (isLoading) return ;
+  // if (isLoading) return ;
   if (error) return <div>Error loading data: {error}</div>;
 
   return (
@@ -154,7 +156,10 @@ const HomePage = ({ isGuest }) => {
 
       {/* Calendar Section */}
       <div className="col-span-12 lg:col-span-3 flex justify-center items-start mb-16 p-4">
-        <Suspense fallback={<span className="loading loading-spinner loading-lg"></span>}>
+        <Suspense fallback={   
+          <div className="h-screen flex justify-center items-center">
+          <LoadingSpinner size="lg" />
+        </div>}>
           <Calendar exerciseDates={userActivities} />
         </Suspense>
       </div>

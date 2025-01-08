@@ -59,7 +59,9 @@ function App() {
 
   return (
     <>
-      <Suspense fallback={<span className="loading loading-spinner loading-lg"></span>}>
+      <Suspense fallback={    <div className="h-screen flex justify-center items-center">
+        <LoadingSpinner size="lg" />
+      </div>}>
         {(authUser || isGuest) && (
           <div className="sticky top-0 z-50 col-span-12">
             <Navbar isGuest={isGuest} setIsGuest={setIsGuest}/>

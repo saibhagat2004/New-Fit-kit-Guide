@@ -144,7 +144,12 @@ const exerciseImages = {
   "Barbell Row":"https://hips.hearstapps.com/hmg-prod/images/workouts/2016/03/barbellrow-1457038583.gif",
   "Barbell Rows":"https://hips.hearstapps.com/hmg-prod/images/workouts/2016/03/barbellrow-1457038583.gif",
   "Stretching":"https://media2.giphy.com/media/WT4C8L1GaOwbHZkVZ2/giphy.gif?cid=6c09b952416avasu102r266hd5wkujgzmgsgs36wf46fs6m5&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
-  "Barbell Bicep Curls":"https://i0.wp.com/www.strengthlog.com/wp-content/uploads/2020/12/Barbell-biceps-curl.gif?resize=600%2C600&ssl=1"
+  "Barbell Bicep Curls":"https://i0.wp.com/www.strengthlog.com/wp-content/uploads/2020/12/Barbell-biceps-curl.gif?resize=600%2C600&ssl=1",
+  "V-Ups":"https://hips.hearstapps.com/hmg-prod/images/workouts/2016/08/vupfull-1472154765.gif?",
+  "Bicycle Crunches": "https://media.tenor.com/Jopm0JiwtdsAAAAM/egsersiz.gif",
+  "Child Pose":"https://www.vinyasayogaashram.com/blog/wp-content/uploads/2023/02/Child-Pose.jpg" ,
+  "Fluttter Kicks":"https://i.pinimg.com/originals/26/a7/50/26a750b15b8e6f3b05976b406d52f7b1.gif ",
+  "Plank":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyYs6lWr7YZcu0RzN88MDLcXddrQiVENrLyA&s",
 };
 
 const enrichExercisePlan = (exercisePlan) => {
