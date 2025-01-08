@@ -66,7 +66,7 @@ const ExerciseList = () => {
     const userId = authUser?._id; // Replace `authUser._id` with your method of accessing the user's ID
   
     if (!userId) {
-      console.error('User ID is required to store activity');
+      toast.error('Please Login , User Id not found ');
       return;
     }
   

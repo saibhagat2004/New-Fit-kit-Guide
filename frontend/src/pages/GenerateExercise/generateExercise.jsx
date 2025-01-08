@@ -252,6 +252,8 @@
 import { useState } from 'react';
 import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from '../../components/common/LoadingSpinner';
+import toast from "react-hot-toast";
+
 
 const ExerciseInputForm = () => {
   const [targetedArea, setTargetedArea] = useState([]);
@@ -262,6 +264,9 @@ const ExerciseInputForm = () => {
 
   const [newTargetArea, setNewTargetArea] = useState('');
   const [newEquipment, setNewEquipment] = useState('');
+
+  const { data: authUser } = useQuery({ queryKey: ["authUser"] });
+
 
   // Predefined options
   const equipmentOptions = ['Dumbbell', 'Barbell', 'Kettlebell', 'Resistance Band'];
@@ -332,6 +337,42 @@ const ExerciseInputForm = () => {
     },
     enabled: false
   });
+  
+  const handleCompleteExercise = async () => {
+    const currentDate = new Date().toISOString().split('T')[0]; 
+    const count = 1;  // Number of exercises completed or another metric
+    const userId = authUser?._id; // Replace `authUser._id` with your method of accessing the user's ID
+    const exercisePlanName="Custom Exercise"
+    if (!userId) {
+      toast.error('Please Login , User Id not found ');
+      return;
+    }
+  
+    try {
+      const res = await fetch(`/api/exercise/storeActivity/${userId}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          exercisePlanName,  // Dynamically pass the exercise plan name
+          date: currentDate,
+          count,
+        }),
+      });
+  
+      const data = await res.json();
+  
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to store activity');
+      }
+  
+      console.log('Activity stored successfully', data);
+      toast.success("Exercise completed");
+    } catch (error) {
+      console.error('Error storing activity:', error.message);
+      toast.error("Failed to store activity");
+    }
+  };
+  
 
   return (
     <>
@@ -469,7 +510,7 @@ const ExerciseInputForm = () => {
           <LoadingSpinner size="lg" />
       </div>}
             {exercises && (
-              <div className="mt-6">
+              <div className="mt-6 mb-12">
                 <h3 className="text-lg font-semibold text-orange-500">Generated Exercises:</h3>
                 {['warmUp', 'primary', 'secondary', 'coolDown'].map((category) => (
                   <div key={category}>
@@ -506,7 +547,18 @@ const ExerciseInputForm = () => {
                     ))}
                   </div>
                 ))}
+
+                <div className="flex justify-center">
+                  <button
+                    className="bg-orange-500 text-white mb-20 px-4 py-2 rounded mt-4"
+                    onClick={handleCompleteExercise}
+                  >
+                    Complete Exercise
+                  </button>
+                </div>
               </div>
+
+
             )}
       </div>
     </>

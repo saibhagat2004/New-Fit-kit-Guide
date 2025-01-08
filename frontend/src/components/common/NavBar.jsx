@@ -156,8 +156,7 @@ const Navbar = ({ isGuest ,setIsGuest}) => { // Accept isGuest as a prop
     e.preventDefault();
     if (isGuest) {
       setIsGuest(false); // Set isGuest to false when guest logs out
-        console.log(isGuest)
-        navigate(`/signup`); // Use navigate function to redirect to home
+        navigate(`/login`); // Use navigate function to redirect to home
     }
      // Call the logout mutation
     logout();

@@ -42,6 +42,7 @@ function App() {
         throw new Error(error);
       }
     },
+    enabled: !isGuest, // Only run the query if the user is not a guest (logged in)
     retry: false, // Only load once
   });
 
