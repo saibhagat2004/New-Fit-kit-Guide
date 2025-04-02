@@ -30,7 +30,6 @@ function App() {
         return null;
       }
       try {
-       
         const res = await fetch("/api/auth/me");
         const data = await res.json();
         if (data.error) return null;
@@ -44,7 +43,7 @@ function App() {
     },
     enabled: !isGuest, // Only run the query if the user is not a guest (logged in)
     retry: false, // Only load once
-  });
+  });``
 
   if (isLoading) {
     return (
@@ -111,3 +110,6 @@ function App() {
 }
 
 export default App;
+
+
+

@@ -173,7 +173,7 @@ export const FilterExercise = async (req, res) => {
 
     const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);  // Initialize the Google Generative AI client using the provided API key from environment variables
 
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });   // Retrieve the specific generative AI model (in this case, "gemini-pro") to generate content
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });   // Retrieve the specific generative AI model (in this case, "gemini-pro") to generate content
 
 
     // Destructure values from req.body and ensure they are arrays

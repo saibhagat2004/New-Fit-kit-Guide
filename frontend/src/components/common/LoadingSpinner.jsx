@@ -1,4 +1,6 @@
 // eslint-disable-next-line react/prop-types
+
+
 const LoadingSpinner = ({size}) => {
 	const sizeClass = `loading-${size}`;
 
