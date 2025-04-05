@@ -192,7 +192,7 @@ const Navbar = ({authUser, isGuest ,setIsGuest}) => { // Accept isGuest as a pro
             <div className="w-10 rounded-full">
               {/* <img alt="Avatar" src={Avatar} /> */}
               <img 
-              src={authUser.profilePicture || Avatar} 
+              src={authUser?.profilePicture || Avatar} 
               alt="Avatar" 
               className="w-10 h-10 rounded-full border border-gray-300"
             />
