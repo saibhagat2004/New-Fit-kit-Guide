@@ -36,6 +36,7 @@ function App() {
         if (!res.ok) {
           throw new Error(data.error || "Something went wrong");
         }
+        console.log("authUser", data);
         return data;
       } catch (error) {
         throw new Error(error);
@@ -64,7 +65,7 @@ function App() {
       </div>}>
         {(authUser || isGuest) && (
           <div className="sticky top-0 z-50 col-span-12">
-            <Navbar isGuest={isGuest} setIsGuest={setIsGuest}/>
+            <Navbar authUser={authUser} isGuest={isGuest} setIsGuest={setIsGuest}/>
           </div>
         )}
         <Routes>

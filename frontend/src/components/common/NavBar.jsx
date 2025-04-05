@@ -123,7 +123,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import Avatar from "../../../public/avatars/boy1.png";
 
-const Navbar = ({ isGuest ,setIsGuest}) => { // Accept isGuest as a prop
+const Navbar = ({authUser, isGuest ,setIsGuest}) => { // Accept isGuest as a prop
   const navigate = useNavigate(); // Initialize useNavigate
   const [isOpen] = useState(false);
   const queryClient = useQueryClient();
@@ -190,7 +190,12 @@ const Navbar = ({ isGuest ,setIsGuest}) => { // Accept isGuest as a prop
         <div className="dropdown dropdown-end">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
-              <img alt="Avatar" src={Avatar} />
+              {/* <img alt="Avatar" src={Avatar} /> */}
+              <img 
+              src={authUser.profilePicture || Avatar} 
+              alt="Avatar" 
+              className="w-10 h-10 rounded-full border border-gray-300"
+            />
             </div>
           </div>
           <ul

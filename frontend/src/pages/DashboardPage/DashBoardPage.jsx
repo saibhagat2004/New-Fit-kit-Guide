@@ -17,7 +17,7 @@ function DashboardPage({isGuest}) {
   const [userActivities, setUserActivities] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error] = useState(null);
-
+  console.log(authUser?.profilePicture)
   useEffect(() => {
     const fetchUserActivities = async () => {
       try {
@@ -98,11 +98,20 @@ function DashboardPage({isGuest}) {
                 <div className="flex flex-col">
                   {/* Avatar */}
                   <div className="flex flex-col items-center relative group">
-                    <img
-                      src={Avatar}
-                      className="w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0"
-                      alt="Profile Picture"
-                    />
+                  {/* <img 
+                    src={authUser?.profilePicture || Avatar} 
+                    alt="Avatar" 
+                    className="w-20 h-20 rounded-full border border-gray-300 object-cover"
+                  /> */}
+                  <img
+                    src={authUser?.profilePicture || Avatar}
+                    alt="Avatar"
+                    className="w-20 h-20 rounded-full border border-gray-300 object-cover"
+                    onError={(e) => {
+                      e.target.onerror = null; // Prevent infinite loop
+                      e.target.src = Avatar; // Fallback to default avatar
+                    }}
+                  />
                     <div
                       className="absolute top-5 right-3 p-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 cursor-pointer z-20"
                     >
@@ -113,7 +122,7 @@ function DashboardPage({isGuest}) {
                     </div>
                   </div>
 
-                  <h1 className="text-xl font-bold self-center">{authUser?.username}</h1>
+                  <h1 className="text-xl font-bold self-center">{ authUser?.fullName || authUser?.username}</h1>
                   <div className="mt-6 flex flex-col items-center">
                     {/* Edit Profile Modal */}
                     <div
@@ -123,7 +132,7 @@ function DashboardPage({isGuest}) {
                     </div>
 
                     {/* Left-Aligned Goals Section */}
-                    <div className="mt-6 w-full text-left">
+                    <div className="mt-16 w-full text-left">
                       <h3 className="font-bold text-lg">Your Goals</h3>
                       <p className="text-gray-500 mt-2">{authUser?.goal || "No goals set yet"}</p>
                       <p className="text-gray-400 mt-4">Weight :{authUser?.weight || "Null"}</p>

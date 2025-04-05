@@ -4,8 +4,9 @@ const userSchema = new mongoose.Schema(
   {
     username: {
       type: String,
-      required: true,
       unique: true,
+      sparse: true,
+            
     },
     fullName: {
       type: String,
@@ -13,7 +14,6 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: true,
       minLength: 6,
     },
     email: {
@@ -24,6 +24,11 @@ const userSchema = new mongoose.Schema(
     profilePicture: {
       type: String,
       default: "",
+    },
+    googleId: {
+      type: String,
+      unique: true,
+      sparse: true, // Allows users to sign up with Google without conflicts
     },
     favoriteExercises: [{ type: mongoose.Schema.Types.ObjectId, ref: "exercises-db" }],
     height: {
