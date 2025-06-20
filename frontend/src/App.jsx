@@ -13,6 +13,7 @@ import LoadingSpinner from '../src/components/common/LoadingSpinner'
 import { Toaster } from "react-hot-toast"
 import { useQuery } from "@tanstack/react-query"
 import Navbar from "./components/common/NavBar";
+import Footer from "./components/common/Footer"
 
 const DiscoveryPage = lazy(() => import('./pages/home/DiscoveryPage'))
 
@@ -106,6 +107,7 @@ function App() {
         </Routes>
       </Suspense>
       <Toaster />
+      <Footer />
     </>
   );
 }
