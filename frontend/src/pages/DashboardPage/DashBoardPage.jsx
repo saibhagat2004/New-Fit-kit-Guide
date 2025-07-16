@@ -83,7 +83,7 @@ function DashboardPage({isGuest}) {
   return (
     <>
       {/* <Navbar /> */}
-      <div className="bg-black min-h-screen text-gray-200 h-screen">
+<div className="bg-black min-h-screen text-gray-200 pb-24">
         <div className="container mx-auto py-8">
           <div className="grid grid-cols-4 sm:grid-cols-12 gap-6 px-4">
             {/* Profile Section */}
